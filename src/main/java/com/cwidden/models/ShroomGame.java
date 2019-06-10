@@ -1,10 +1,14 @@
 package com.cwidden.models;
 
+import com.cwidden.SVSController;
+
 import java.util.ArrayList;
 
 public class ShroomGame {
 
     private double sunPerSecond;
+
+    private SVSController svsController = SVSController.getINSTANCE();
 
     public ShroomGame(int seconds) {
         new ShroomGame(seconds, 45, false);
@@ -18,7 +22,7 @@ public class ShroomGame {
 
         for (int i = 0; i < seconds; i++) {
             if (printEverySecond) {
-                System.out.println("Sun: " + sun + " Sunshrooms: " + shroomList.size());
+                svsController.printShroomText("Sun: " + sun + " Sunshrooms: " + shroomList.size(), false);
             }
 
             while (sun >= 25 && shroomList.size() < maxField && recharge <= 0) {
@@ -39,7 +43,7 @@ public class ShroomGame {
 
         }
 
-        System.out.println("Final efficiency: " + sunPerSecond + " sun per second");
+        svsController.printShroomText("Final efficiency: " + sunPerSecond + " sun per second", true);
     }
 
     private class Sunshroom {

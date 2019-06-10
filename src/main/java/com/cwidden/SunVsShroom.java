@@ -5,10 +5,16 @@ import com.cwidden.models.SunGame;
 
 public class SunVsShroom {
 
+    static SVSController svsController = SVSController.getINSTANCE();
+
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        svsController.buildGui();
+
+        /*for (int i = 0; i < 10; i++) {
             runGames(30 * i);
         }
+
+         */
 
     }
 
